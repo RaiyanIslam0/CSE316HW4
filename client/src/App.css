@@ -137,10 +137,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 #add-list-button {
   float: left;
+  pointer-events: all;
+}
+
+#home-screen-title {
+  font-size: 70pt;
+  color: white;
 }
 
 #list-selector-list {
@@ -261,6 +268,13 @@ input {
   color: var(--swatch-neutral);
 }
 
+
+.error-modal-dialog {
+  display: flex;
+  cursor: default;
+  justify-content: center;
+}
+
 /* THIS STYLE SHEET MANAGES STYLE FOR OUR MODAL, i.e. DIALOG BOX */
 
 .modal {
@@ -330,7 +344,7 @@ input {
 }
 
 .dialog-header {
-  font-size: 24pt;
+  font-size: 20pt;
 }
 
 #close-modal-button {
