@@ -150,6 +150,10 @@ body {
   color: white;
 }
 
+.playlister-statusbar,h4{
+  align-items: center;
+}
+
 #list-selector-list {
   position: absolute;
   left: 0%;
