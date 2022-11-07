@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { GlobalStoreContext } from '../store'
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 function SongCard(props) {
     const { store } = useContext(GlobalStoreContext);
@@ -45,33 +47,36 @@ function SongCard(props) {
 
     let cardClass = "list-card unselected-list-card";
     return (
-        <div
-            key={index}
-            id={'song-' + index + '-card'}
-            className={cardClass}
-            onDragStart={handleDragStart}
-            onDragOver={handleDragOver}
-            onDragEnter={handleDragEnter}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-            draggable="true"
-            onClick={handleClick}
+      <div
+        key={index}
+        id={"song-" + index + "-card"}
+        className={cardClass}
+        onDragStart={handleDragStart}
+        onDragOver={handleDragOver}
+        onDragEnter={handleDragEnter}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        draggable="true"
+        onClick={handleClick}
+      >
+        {index + 1}.
+        <a
+          id={"song-" + index + "-link"}
+          className="song-link"
+          href={"https://www.youtube.com/watch?v=" + song.youTubeId}
         >
-            {index + 1}.
-            <a
-                id={'song-' + index + '-link'}
-                className="song-link"
-                href={"https://www.youtube.com/watch?v=" + song.youTubeId}>
-                {song.title} by {song.artist}
-            </a>
-            <input
-                type="button"
-                id={"remove-song-" + index}
-                className="list-card-button"
-                value={"\u2715"}
-                onClick={handleRemoveSong}
-            />
-        </div>
+          {song.title} by {song.artist}
+        </a>
+        <IconButton
+          aria-label="close"
+          id={"remove-song-" + index}
+          className="list-card-button"
+          color="inherit"
+          size="small"
+          onClick={handleRemoveSong}>
+             <CloseIcon fontSize="inherit"/>
+            </IconButton>
+      </div>
     );
 }
 
